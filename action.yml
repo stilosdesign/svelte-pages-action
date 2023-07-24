@@ -1,7 +1,7 @@
 name: 'Svelte to Github Pages'
 branding:
   icon: 'activity'  
-  color: 'blue'
+  color: 'orange'
 description: 'This Action will Build your Svelte Project and deploy it to Github Pages'
 author: 'StilosDesign'
 inputs:
@@ -35,8 +35,8 @@ inputs:
     steps:
       - name: Build Svelte
         run: |
-          npm ci
-          npm run build
+          npm ci;
+          npm run build;
           cd dist
           ln -s index.html 404.html
           if [ "none" !=  ${{ inputs.cname }} ]; then echo '${{ inputs.cname }}' > CNAME; fi
