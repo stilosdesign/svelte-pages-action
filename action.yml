@@ -27,7 +27,7 @@ runs:
   env:
     ACCESS_TOKEN: ${{ inputs.token }}
     GITHUB_ACTOR: ${{ inputs.username }}
-    TARGET_REPO: ${{ inputs.reposname }}
+    TARGET_REPO: ${{ inputs.username }}/${{ inputs.reposname }}
     TARGET_BRANCH: main
     BUILD_SCRIPT: ${{ inputs.scripts }}
     BUILD_DIR: ${{ inputs.buildfolder }}
