@@ -19,7 +19,7 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   env:
-    ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+    ACCESS_TOKEN: ${{ inputs.token }}
     GITHUB_ACTOR: ${{ inputs.username }}
     TARGET_REPO: ${{ inputs.reposname }}
     TARGET_BRANCH: main
