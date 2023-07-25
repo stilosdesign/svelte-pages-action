@@ -1,0 +1,6 @@
+{
+    "name": "svelte-pages-action",
+    "description": "This Action will build your svelte or any project front-end and deploy it to Github Pages",
+    "license": "MIT",
+    "repository": "https://github.com/stilosdesign/svelte-pages-action"
+  }

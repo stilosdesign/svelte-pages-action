@@ -5,24 +5,30 @@ branding:
   icon: 'play'  
   color: 'green'
 inputs:
+  token:
+    description: 'Your Github token'
+    required: true 
   username:
     description: 'Your username'
     required: true
   reposname:
     description: 'Your reposname'
-    required: true
+    required: false
   repospage:
     description: 'Your repospage'
-    required: true
-  token:
-    description: 'Your Github token'
-    required: true  
+    required: false   
   script:
     description: 'Your Script'
     required: true  
   buildfolder:
     description: 'Your Build Folder'
-    required: true  
+    required: true 
+  commitmessage:
+    description: 'Your Commit Message'
+    required: false 
+  cname:
+    description: 'Your CNAME'
+    required: false  
 
 runs:
   using: 'docker'
@@ -34,3 +40,5 @@ runs:
     TARGET_BRANCH: ${{ inputs.repospage }}
     BUILD_SCRIPT: ${{ inputs.script }}
     BUILD_DIR: ${{ inputs.buildfolder }}
+    COMMIT_MESSAGE: ${{ inputscommitmessage }}
+    CNAME: ${{ inputs.cname }}
