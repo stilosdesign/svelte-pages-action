@@ -1,9 +1,9 @@
 name: 'Svelte to Github Pages'
-branding:
-  icon: 'activity'  
-  color: 'orange'
-description: 'This Action will Build your Svelte Project and deploy it to Github Pages'
 author: 'StilosDesign'
+description: 'This Action will Build your Svelte Project and deploy it to Github Pages'
+branding:
+  icon: 'play'  
+  color: 'green'
 inputs:
   username:
     description: 'Your username'
@@ -13,36 +13,17 @@ inputs:
     required: true
   token:
     description: 'Your Github token'
-    required: true
-  gitemail:
-    description: 'Your git commit email'
-    required: false
-    default: 'ci@domain.com'
-  gitname:
-    description: 'Your git commit name'
-    required: false
-    default: 'ci'
-  gitmsg:
-    description: 'Your git commit message'
-    required: false
-    default: 'deploy'
-  cname:
-    description: 'Your custom domain'
-    required: false
-    default: 'none'
-  runs:
-    using: "composite"
-    steps:
-      - name: Build Svelte
-        run: |
-          npm ci;
-          npm run build;
-          cd dist
-          ln -s index.html 404.html
-          git config --global user.email "${{ inputs.gitemail }}"
-              git config --global user.name "${{ inputs.gitname }}"
-              git init
-              git add -A
-              git commit -m '${{ inputs.gitmsg }}'
-              git push -f https://${{ inputs.username }}:${{ inputs.token }}@github.com/${{ inputs.username }}/${{ inputs.reposname }}.git master:gh-pages
-        shell: bash
+    required: true  
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  env:
+    ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+    GITHUB_ACTOR: ${{ inputs.username }}
+    TARGET_REPO: ${{ inputs.reposname }}
+    TARGET_BRANCH: main
+    BUILD_SCRIPT: npm install && npm build
+    BUILD_DIR: /dist/
+  
+
