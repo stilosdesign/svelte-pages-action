@@ -1,7 +1,8 @@
 FROM node:16.19.1-slim as base
 
-LABEL "com.github.actions.name"="StilosDesign"
-LABEL "com.github.actions.description"="This Action will Build your Svelte Project and deploy it to Github Pages"
+LABEL "com.github.actions.name"="Svelte to Github Pages"
+LABEL "com.github.actions.description"="This Action will build your svelte or any project front-end and deploy it to Github Pages"
+LABEL "com.github.actions.author"="StilosDesign"
 LABEL "com.github.actions.color"="green"
 LABEL "com.github.actions.icon"="play"
 

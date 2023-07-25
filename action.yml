@@ -1,6 +1,6 @@
 name: 'Svelte to Github Pages'
 author: 'StilosDesign'
-description: 'This Action will Build your Svelte Project and deploy it to Github Pages'
+description: 'This Action will build your svelte or any project front-end and deploy it to Github Pages'
 branding:
   icon: 'play'  
   color: 'green'
@@ -17,8 +17,8 @@ inputs:
   token:
     description: 'Your Github token'
     required: true  
-  scripts:
-    description: 'Your Scripts'
+  script:
+    description: 'Your Script'
     required: true  
   buildfolder:
     description: 'Your Build Folder'
@@ -28,9 +28,9 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   env:
-    ACCESS_TOKEN: ${{ inputs.token }}
-    GITHUB_ACTOR: ${{ inputs.username }}
+    GITHUB_TOKEN: ${{ inputs.token }}
+    GITHUB_USERNAME: ${{ inputs.username }}
     TARGET_REPO: ${{ inputs.username }}/${{ inputs.reposname }}
     TARGET_BRANCH: ${{ inputs.repospage }}
-    BUILD_SCRIPT: ${{ inputs.scripts }}
+    BUILD_SCRIPT: ${{ inputs.script }}
     BUILD_DIR: ${{ inputs.buildfolder }}

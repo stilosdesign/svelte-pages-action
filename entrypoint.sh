@@ -8,7 +8,7 @@ echo ''
 echo "node version: $(node -v)"
 echo "npm version: $(npm -v)"
 
-# Build svelte project
+# Build Any FrontEnd Project
 echo "==> Start building \n $BUILD_SCRIPT"
 eval "$BUILD_SCRIPT"
 echo "Build success"
@@ -17,7 +17,7 @@ echo "Build success"
 echo "==> Changing directory to '$BUILD_DIR' ..."
 cd $BUILD_DIR
 
-# workaround for 'fatal: unsafe repository' error
+# Workaround for 'fatal: unsafe repository' error
 git config --global --add safe.directory "*"
 
 # Get respository
@@ -34,8 +34,8 @@ else
   DEPLOY_BRAN="$TARGET_BRANCH"
 fi
 
-# Final repository
-DEPLOY_REPO="https://username:${ACCESS_TOKEN}@github.com/${REPOSITORY_NAME}.git"
+# End Repository
+DEPLOY_REPO="https://username:${GITHUB_TOKEN}@github.com/${REPOSITORY_NAME}.git"
 if [ "$TARGET_LINK" ]; then
   DEPLOY_REPO="$TARGET_LINK"
 fi
@@ -43,8 +43,8 @@ fi
 echo "==> Prepare to deploy"
 
 git init
-git config user.name "${GITHUB_ACTOR}"
-git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+git config user.name "${GITHUB_USERNAME}"
+git config user.email "${GITHUB_USERNAME}@users.noreply.github.com"
 
 if [ -z "$(git status --porcelain)" ]; then
     echo "The BUILD_DIR is setting error or nothing produced" && \
