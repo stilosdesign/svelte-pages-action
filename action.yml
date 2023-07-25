@@ -11,6 +11,9 @@ inputs:
   reposname:
     description: 'Your reposname'
     required: true
+  repospage:
+    description: 'Your repospage'
+    required: true
   token:
     description: 'Your Github token'
     required: true  
@@ -28,8 +31,6 @@ runs:
     ACCESS_TOKEN: ${{ inputs.token }}
     GITHUB_ACTOR: ${{ inputs.username }}
     TARGET_REPO: ${{ inputs.username }}/${{ inputs.reposname }}
-    TARGET_BRANCH: main
+    TARGET_BRANCH: ${{ inputs.repospage }}
     BUILD_SCRIPT: ${{ inputs.scripts }}
     BUILD_DIR: ${{ inputs.buildfolder }}
-  
-
