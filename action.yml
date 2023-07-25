@@ -17,6 +17,9 @@ inputs:
   scripts:
     description: 'Your Scripts'
     required: true  
+  buildfolder:
+    description: 'Your Build Folder'
+    required: true  
 
 runs:
   using: 'docker'
@@ -27,6 +30,6 @@ runs:
     TARGET_REPO: ${{ inputs.reposname }}
     TARGET_BRANCH: main
     BUILD_SCRIPT: ${{ inputs.scripts }}
-    BUILD_DIR: /dist/
+    BUILD_DIR: ${{ inputs.buildfolder }}
   
 
