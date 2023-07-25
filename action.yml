@@ -23,7 +23,7 @@ runs:
     GITHUB_ACTOR: ${{ inputs.username }}
     TARGET_REPO: ${{ inputs.reposname }}
     TARGET_BRANCH: main
-    BUILD_SCRIPT: npm install && npm build
+    BUILD_SCRIPT: npm install && npm run build
     BUILD_DIR: /dist/
   
 
