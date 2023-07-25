@@ -40,5 +40,5 @@ runs:
     TARGET_BRANCH: ${{ inputs.repospage }}
     BUILD_SCRIPT: ${{ inputs.script }}
     BUILD_DIR: ${{ inputs.buildfolder }}
-    COMMIT_MESSAGE: ${{ inputscommitmessage }}
+    COMMIT_MESSAGE: ${{ inputs.commitmessage }}
     CNAME: ${{ inputs.cname }}
