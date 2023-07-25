@@ -14,6 +14,9 @@ inputs:
   token:
     description: 'Your Github token'
     required: true  
+  scripts:
+    description: 'Your Scripts'
+    required: true  
 
 runs:
   using: 'docker'
@@ -23,7 +26,7 @@ runs:
     GITHUB_ACTOR: ${{ inputs.username }}
     TARGET_REPO: ${{ inputs.reposname }}
     TARGET_BRANCH: main
-    BUILD_SCRIPT: npm install && npm run build
+    BUILD_SCRIPT: ${{ inputs.scripts }}
     BUILD_DIR: /dist/
   
 
