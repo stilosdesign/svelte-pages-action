@@ -1,0 +1,19 @@
+name: Build And Deploy Svelte
+on: [push]
+jobs:
+  build-and-deploy-svelte:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: svelte-deploy
+        id: svelte-deploy
+        uses: stilosdesign/svelte-pages-action@v1.0.0
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
+          username: 'username'
+          reposname: 'reposname'
+          repospage: 'gh-pages'          
+          script: 'npm install && npm run build'
+          buildfolder: 'dist'
